@@ -1,0 +1,15 @@
+{
+  "name": "vllm-book",
+  "version": "1.0.0",
+  "description": "vLLM 原理深度解析文档",
+  "scripts": {
+    "build": "hugo --gc --minify",
+    "serve": "hugo server --buildDrafts",
+    "clean": "rm -rf public resources"
+  },
+  "devDependencies": {
+    "autoprefixer": "^10.4.19",
+    "postcss": "^8.4.38",
+    "postcss-cli": "^11.0.0"
+  }
+}

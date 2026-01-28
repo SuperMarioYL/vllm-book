@@ -1,0 +1,26 @@
+{
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "name": "Hugo Server",
+      "type": "node-terminal",
+      "request": "launch",
+      "command": "hugo server --buildDrafts --navigateToChanged",
+      "cwd": "${workspaceFolder}"
+    },
+    {
+      "name": "Hugo Server (Debug)",
+      "type": "node-terminal",
+      "request": "launch",
+      "command": "hugo server --buildDrafts --debug --verbose --navigateToChanged",
+      "cwd": "${workspaceFolder}"
+    },
+    {
+      "name": "Hugo Build",
+      "type": "node-terminal",
+      "request": "launch",
+      "command": "hugo --gc --minify",
+      "cwd": "${workspaceFolder}"
+    }
+  ]
+}

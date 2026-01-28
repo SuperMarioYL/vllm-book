@@ -1,0 +1,49 @@
+{
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "label": "Hugo: Start Server",
+      "type": "shell",
+      "command": "hugo server --buildDrafts --navigateToChanged",
+      "group": {
+        "kind": "build",
+        "isDefault": true
+      },
+      "presentation": {
+        "echo": true,
+        "reveal": "always",
+        "focus": false,
+        "panel": "dedicated",
+        "showReuseMessage": false,
+        "clear": true
+      },
+      "problemMatcher": [],
+      "isBackground": true
+    },
+    {
+      "label": "Hugo: Build",
+      "type": "shell",
+      "command": "hugo --gc --minify",
+      "group": "build",
+      "presentation": {
+        "echo": true,
+        "reveal": "always",
+        "focus": false,
+        "panel": "shared"
+      },
+      "problemMatcher": []
+    },
+    {
+      "label": "Hugo: Clean",
+      "type": "shell",
+      "command": "rm -rf public resources",
+      "presentation": {
+        "echo": true,
+        "reveal": "always",
+        "focus": false,
+        "panel": "shared"
+      },
+      "problemMatcher": []
+    }
+  ]
+}

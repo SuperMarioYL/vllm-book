@@ -1,0 +1,175 @@
+# Hugo 基础配置
+baseURL = "https://vllmbook.lei6393.com/"
+languageCode = "zh-CN"
+title = "vLLM Cookbook"
+# 使用 Hugo Modules 时不需要设置 theme
+
+# 禁用路径小写转换（保持文件名原样）
+disablePathToLower = true
+
+# 启用 Git 信息（用于显示最后修改时间）
+enableGitInfo = true
+
+# 默认内容语言
+defaultContentLanguage = "zh"
+defaultContentLanguageInSubdir = false
+
+# 构建草稿
+buildDrafts = false
+
+# 启用 Emoji
+enableEmoji = true
+
+# ===============================
+# 主题参数配置
+# ===============================
+[params]
+  # 网站描述
+  description = "面向深度学习初学者的 vLLM 技术文档，从基础概念到核心算法的完整解析"
+
+  # 版权信息
+  copyright = "vLLM Book"
+
+  # 隐私政策链接（可选）
+  # privacy_policy = "https://policies.google.com/privacy"
+
+  # Docsy 主题配置
+  offlineSearch = true
+
+  # 版本选择器（可选）
+  version_menu = "Releases"
+  archived_version = false
+  version = "1.0"
+
+  # GitHub 仓库配置
+  github_repo = "https://github.com/SuperMarioYL/vllm-book"
+  github_project_repo = "https://github.com/SuperMarioYL/vllm-book"
+  github_branch = "main"
+
+  # Mermaid 图表
+  [params.mermaid]
+    enable = true
+    theme = "neutral"
+
+  # 文档侧边栏配置
+  [params.ui]
+    # 启用面包屑导航
+    breadcrumb_disable = false
+    # 禁用页脚关于区域
+    footer_about_enable = false
+    # 显示导航栏徽标
+    navbar_logo = true
+    # 侧边栏搜索
+    sidebar_search_disable = false
+    # 侧边栏菜单
+    sidebar_menu_compact = true
+    sidebar_menu_foldable = true
+    # 目录深度
+    ul_show = 2
+
+  # 页面反馈（可选，禁用）
+  [params.ui.feedback]
+    enable = false
+
+  # 阅读时间（可选）
+  [params.ui.readingtime]
+    enable = true
+
+  # 链接配置
+  [params.links]
+    [[params.links.developer]]
+      name = "GitHub"
+      url = "https://github.com/SuperMarioYL/vllm-book"
+      icon = "fab fa-github"
+      desc = "项目源码"
+    [[params.links.developer]]
+      name = "vLLM"
+      url = "https://github.com/vllm-project/vllm"
+      icon = "fab fa-github"
+      desc = "vLLM 项目"
+
+# ===============================
+# Markdown 渲染配置
+# ===============================
+[markup]
+  [markup.goldmark]
+    [markup.goldmark.parser.attribute]
+      block = true
+    [markup.goldmark.renderer]
+      # 允许渲染原始 HTML（支持 Mermaid 等）
+      unsafe = true
+
+  [markup.tableOfContents]
+    # 目录开始级别
+    startLevel = 2
+    # 目录结束级别
+    endLevel = 4
+    # 是否显示有序列表
+    ordered = false
+
+  [markup.highlight]
+    # 代码高亮
+    anchorLineNos = false
+    codeFences = true
+    guessSyntax = false
+    hl_Lines = ""
+    hl_inline = false
+    lineAnchors = ""
+    lineNoStart = 1
+    lineNos = false
+    lineNumbersInTable = true
+    noClasses = false
+    noHl = false
+    style = "tango"
+    tabWidth = 4
+
+# ===============================
+# 菜单配置
+# ===============================
+[menu]
+  [[menu.main]]
+    name = "文档"
+    weight = 10
+    url = "/docs/"
+  [[menu.main]]
+    name = "vLLM 官网"
+    weight = 50
+    url = "https://vllm.ai"
+    pre = "<i class='fas fa-external-link-alt'></i>"
+
+# ===============================
+# 输出格式
+# ===============================
+[outputs]
+  home = ["HTML"]
+  section = ["HTML", "print"]
+
+# ===============================
+# 模块配置（Docsy 需要）
+# ===============================
+[module]
+  proxy = "direct"
+  [module.hugoVersion]
+    extended = true
+    min = "0.110.0"
+  [[module.imports]]
+    path = "github.com/google/docsy"
+    disable = false
+
+# ===============================
+# 多语言配置
+# ===============================
+[languages]
+  [languages.zh]
+    languageName = "中文"
+    weight = 1
+    title = "vLLM Cookbook"
+    [languages.zh.params]
+      description = "面向深度学习初学者的 vLLM 技术文档"
+
+# ===============================
+# 安全配置
+# ===============================
+[security]
+  [security.funcs]
+    getenv = ["^HUGO_", "^CI$"]
