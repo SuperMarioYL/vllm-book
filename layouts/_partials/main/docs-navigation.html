@@ -1,39 +1,17 @@
 {{/*
   Custom docs navigation that properly handles nested sections with weight ordering.
   This overrides the default @thulite/doks-core navigation.
+  Supports structure: content/vllm/01-introduction/01-why-vllm.md
 */}}
 
-{{- $docsSection := site.GetPage "docs" -}}
 {{- $allPages := slice -}}
 
-{{/* Recursively collect all regular pages under docs, sorted by weight */}}
-{{- define "collectPages" -}}
-  {{- $result := .result -}}
-  {{- $section := .section -}}
-  {{- range $section.Sections.ByWeight -}}
-    {{- $result = partial "collectPagesHelper" (dict "result" $result "section" .) -}}
-  {{- end -}}
-  {{- range $section.RegularPages.ByWeight -}}
-    {{- $result = $result | append . -}}
-  {{- end -}}
-  {{- return $result -}}
-{{- end -}}
+{{/* Get the current page's top-level section (e.g., vllm, sglang) */}}
+{{- $topSection := .FirstSection -}}
 
-{{- define "collectPagesHelper" -}}
-  {{- $result := .result -}}
-  {{- $section := .section -}}
-  {{- range $section.Sections.ByWeight -}}
-    {{- $result = partial "collectPagesHelper" (dict "result" $result "section" .) -}}
-  {{- end -}}
-  {{- range $section.RegularPages.ByWeight -}}
-    {{- $result = $result | append . -}}
-  {{- end -}}
-  {{- return $result -}}
-{{- end -}}
-
-{{/* Build flat list of all doc pages in correct order */}}
-{{- if $docsSection -}}
-  {{- range $docsSection.Sections.ByWeight -}}
+{{/* Build flat list of all doc pages in correct order within the section */}}
+{{- if $topSection -}}
+  {{- range $topSection.Sections.ByWeight -}}
     {{- range .RegularPages.ByWeight -}}
       {{- $allPages = $allPages | append . -}}
     {{- end -}}

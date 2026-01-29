@@ -1,5 +1,5 @@
-title = "vLLM Cookbook"
-baseurl = "https://vllmbook.lei6393.com/"
+title = "Inference Cookbook"
+baseurl = "https://inference.cookbook.lei6393.com/"
 disableAliases = true
 disableHugoGeneratorInject = true
 # disableKinds = ["taxonomy", "term"]
@@ -15,7 +15,7 @@ defaultContentLanguage = "zh"
 disableLanguages = ["de", "nl", "en"]
 defaultContentLanguageInSubdir = false
 
-copyRight = "Copyright (c) 2024-2025 vLLM Book"
+copyRight = "Copyright (c) 2024-2025 Inference Cookbook"
 
 [build.buildStats]
   enable = true

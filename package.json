@@ -1,12 +1,12 @@
 {
-  "name": "vllm-book-doks",
+  "name": "inference-cookbook",
   "version": "1.8.0",
-  "description": "Doks theme",
-  "author": "Thulite",
+  "description": "LLM 推理框架技术文档",
+  "author": "SuperMarioYL",
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "https://github.com/thuliteio/doks.git"
+    "url": "https://github.com/SuperMarioYL/inference-cookbook.git"
   },
   "scripts": {
     "create": "hugo new",
