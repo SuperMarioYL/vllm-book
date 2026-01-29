@@ -512,19 +512,19 @@ def create_chat_completion_response(
 
 ```mermaid
 flowchart TD
-    subgraph EngineCore
+    subgraph engine_core["EngineCore"]
         SO[SamplerOutput] --> UO[update_from_output]
         UO --> CS[check_stop]
         CS --> ECO[EngineCoreOutput]
     end
 
-    subgraph LLMEngine
+    subgraph llm_engine["LLMEngine"]
         ECO --> DT[Detokenize]
         DT --> PL[Process Logprobs]
         PL --> RO[RequestOutput]
     end
 
-    subgraph API Server
+    subgraph api_server["API Server"]
         RO --> FMT[格式化]
         FMT --> |非流式| JSON[JSON Response]
         FMT --> |流式| SSE[SSE Events]

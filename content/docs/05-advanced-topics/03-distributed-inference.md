@@ -209,19 +209,19 @@ sequenceDiagram
 
 ```mermaid
 graph LR
-    subgraph GPU 0
+    subgraph gpu0["GPU 0"]
         L1[Layer 0-15]
     end
 
-    subgraph GPU 1
+    subgraph gpu1["GPU 1"]
         L2[Layer 16-31]
     end
 
-    subgraph GPU 2
+    subgraph gpu2["GPU 2"]
         L3[Layer 32-47]
     end
 
-    subgraph GPU 3
+    subgraph gpu3["GPU 3"]
         L4[Layer 48-63]
     end
 
@@ -288,12 +288,12 @@ graph TD
         R --> R2["请求 4,5,6"]
     end
 
-    subgraph GPU 0
+    subgraph gpu0["GPU 0"]
         M1[完整模型副本]
         R1 --> M1
     end
 
-    subgraph GPU 1
+    subgraph gpu1["GPU 1"]
         M2[完整模型副本]
         R2 --> M2
     end

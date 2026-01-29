@@ -15,7 +15,7 @@ weight: 3
 
 ```mermaid
 graph TD
-    subgraph LlamaForCausalLM
+    subgraph llama_model["LlamaForCausalLM"]
         Input[input_ids] --> Embed[Embedding]
         Embed --> Layers[Transformer Layers × N]
         Layers --> Norm[RMSNorm]
@@ -23,7 +23,7 @@ graph TD
         LMHead --> Logits[logits]
     end
 
-    subgraph "Transformer Layer"
+    subgraph transformer_layer["Transformer Layer"]
         H[hidden_states] --> LN1[RMSNorm]
         LN1 --> Attn[Self-Attention]
         Attn --> Add1[+]
@@ -264,7 +264,7 @@ class LlamaDecoderLayer(nn.Module):
 
 ```mermaid
 flowchart TD
-    subgraph "LlamaDecoderLayer Forward"
+    subgraph decoder_layer["LlamaDecoderLayer Forward"]
         Input["输入<br/>(hidden_states, residual)"]
 
         Input --> Check{residual is None?}
@@ -382,7 +382,7 @@ class LlamaAttention(nn.Module):
 
 ```mermaid
 flowchart LR
-    subgraph "Self-Attention"
+    subgraph self_attn["Self-Attention"]
         H["hidden_states<br/>[tokens, hidden]"]
         QKV["QKV Projection"]
         Split["Split"]
@@ -487,7 +487,7 @@ class LlamaMLP(nn.Module):
 
 ```mermaid
 flowchart LR
-    subgraph "MLP (SwiGLU)"
+    subgraph mlp_swiglu["MLP (SwiGLU)"]
         X["x<br/>[tokens, hidden]"]
         GU["gate_up_proj"]
         Gate["gate"]
@@ -621,20 +621,20 @@ class RowParallelLinear(nn.Module):
 
 ```mermaid
 graph TD
-    subgraph GPU 0
+    subgraph gpu0["GPU 0"]
         Q0["Q[:, :dim/2]"]
         K0["K[:, :dim/4]"]
         V0["V[:, :dim/4]"]
     end
 
-    subgraph GPU 1
+    subgraph gpu1["GPU 1"]
         Q1["Q[:, dim/2:]"]
         K1["K[:, dim/4:]"]
         V1["V[:, dim/4:]"]
     end
 
-    Input["hidden_states"] --> GPU0
-    Input --> GPU1
+    Input["hidden_states"] --> gpu0
+    Input --> gpu1
 
     Q0 --> Attn0["Attention 0"]
     K0 --> Attn0
@@ -655,7 +655,7 @@ graph TD
 
 ```mermaid
 flowchart TD
-    subgraph "execute_model"
+    subgraph execute_model["execute_model"]
         Input["SchedulerOutput"]
         Prep["_prepare_inputs()"]
         FWD["model.forward()"]
@@ -670,7 +670,7 @@ flowchart TD
         Sample --> Output
     end
 
-    subgraph "model.forward()"
+    subgraph model_forward["model.forward()"]
         Embed["embed_tokens(input_ids)"]
         Layers["for layer in layers:<br/>  hidden, residual = layer(...)"]
         Norm["norm(hidden, residual)"]
@@ -679,7 +679,7 @@ flowchart TD
         Layers --> Norm
     end
 
-    subgraph "layer.forward()"
+    subgraph layer_forward["layer.forward()"]
         LN1["input_layernorm"]
         Attn["self_attn(Q,K,V + KV Cache)"]
         LN2["post_attention_layernorm"]

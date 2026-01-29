@@ -135,7 +135,7 @@ class FreeKVCacheBlockQueue:
 
 ```mermaid
 graph LR
-    subgraph FreeKVCacheBlockQueue
+    subgraph free_queue["FreeKVCacheBlockQueue"]
         HEAD[fake_head<br/>id=-1]
         B0[Block 0]
         B1[Block 1]
@@ -274,7 +274,7 @@ class BlockPool:
 
 ```mermaid
 graph TD
-    subgraph BlockPool
+    subgraph block_pool["BlockPool"]
         blocks["blocks[0...N-1]"]
         FQ[FreeKVCacheBlockQueue]
         Cache[BlockHashToBlockMap]

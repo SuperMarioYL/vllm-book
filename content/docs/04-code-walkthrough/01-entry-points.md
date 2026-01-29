@@ -234,14 +234,14 @@ class LLMEngine:
 
 ```mermaid
 graph TD
-    subgraph add_request
+    subgraph add_request_flow["add_request"]
         A1[接收请求] --> A2[处理输入]
         A2 --> A3[tokenize]
         A3 --> A4[创建 EngineCoreRequest]
         A4 --> A5[发送到 EngineCore]
     end
 
-    subgraph step
+    subgraph step_flow["step"]
         S1[调用 EngineCore.step] --> S2[获取输出]
         S2 --> S3[detokenize]
         S3 --> S4[构建 RequestOutput]
@@ -380,24 +380,24 @@ python -m vllm.entrypoints.openai.api_server --model meta-llama/Llama-2-7b
 
 ```mermaid
 graph TD
-    subgraph API Server
-        FastAPI[FastAPI 应用]
-        Router[路由器]
-        Middleware[中间件]
+    subgraph apiserver["API Server"]
+        FastAPI["FastAPI 应用"]
+        Router["路由器"]
+        Middleware["中间件"]
     end
 
-    subgraph Endpoints
-        Chat[/v1/chat/completions]
-        Completions[/v1/completions]
-        Embeddings[/v1/embeddings]
-        Models[/v1/models]
+    subgraph endpoints["Endpoints"]
+        Chat["/v1/chat/completions"]
+        Completions["/v1/completions"]
+        Embeddings["/v1/embeddings"]
+        Models["/v1/models"]
     end
 
-    subgraph Engine
-        AsyncEngine[AsyncLLMEngine]
+    subgraph engine["Engine"]
+        AsyncEngine["AsyncLLMEngine"]
     end
 
-    Client[HTTP 客户端] --> FastAPI
+    Client["HTTP 客户端"] --> FastAPI
     FastAPI --> Router
     Router --> Chat
     Router --> Completions

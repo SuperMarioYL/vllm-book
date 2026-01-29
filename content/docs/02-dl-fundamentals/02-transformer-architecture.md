@@ -52,7 +52,7 @@ Transformer 的核心创新是**自注意力机制（Self-Attention）**：
 
 ```mermaid
 graph TB
-    subgraph Self-Attention
+    subgraph self_attn["Self-Attention"]
         X1[x₁] <--> X2[x₂]
         X1 <--> X3[x₃]
         X1 <--> X4[x₄]

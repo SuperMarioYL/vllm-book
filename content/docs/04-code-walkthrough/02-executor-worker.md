@@ -541,12 +541,12 @@ class BlockTable:
 
 ```mermaid
 graph LR
-    subgraph GPU 0
+    subgraph gpu0["GPU 0"]
         A0[输入] --> L0[Linear 分片 0]
         L0 --> R0[部分结果]
     end
 
-    subgraph GPU 1
+    subgraph gpu1["GPU 1"]
         A1[输入] --> L1[Linear 分片 1]
         L1 --> R1[部分结果]
     end
@@ -560,19 +560,19 @@ graph LR
 
 ```mermaid
 graph LR
-    subgraph Stage 0 - GPU 0
+    subgraph stage0["Stage 0 - GPU 0"]
         L0_6[Layers 0-5]
     end
 
-    subgraph Stage 1 - GPU 1
+    subgraph stage1["Stage 1 - GPU 1"]
         L6_12[Layers 6-11]
     end
 
-    subgraph Stage 2 - GPU 2
+    subgraph stage2["Stage 2 - GPU 2"]
         L12_18[Layers 12-17]
     end
 
-    subgraph Stage 3 - GPU 3
+    subgraph stage3["Stage 3 - GPU 3"]
         L18_24[Layers 18-23]
     end
 

@@ -227,7 +227,7 @@ request.num_computed_tokens = num_cached_tokens
 
 ```mermaid
 flowchart TD
-    subgraph Scheduler.schedule
+    subgraph scheduler_schedule["Scheduler.schedule"]
         W[waiting 队列] --> Peek[peek_request]
         Peek --> Cache[get_computed_blocks]
         Cache --> Alloc[allocate_slots]
@@ -239,7 +239,7 @@ flowchart TD
         Move --> SO[构建 SchedulerOutput]
     end
 
-    subgraph SchedulerOutput
+    subgraph scheduler_output["SchedulerOutput"]
         SO --> Reqs[scheduled_new_reqs]
         SO --> Blocks[req_to_new_blocks]
         SO --> Tokens[num_scheduled_tokens]
