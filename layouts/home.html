@@ -1,0 +1,115 @@
+{{ define "main" }}
+<section class="section container-fluid mt-n3 pb-3">
+  <div class="row justify-content-center">
+    <div class="col-lg-12 text-center">
+      <h1 class="display-3 fw-bold mt-5">{{ .Title }}</h1>
+    </div>
+    <div class="col-lg-9 col-xl-8 text-center">
+      <p class="lead fs-4 text-muted my-4">{{ .Params.lead | safeHTML }}</p>
+      <div class="my-4">
+        <a class="btn btn-primary btn-lg rounded-pill px-5 me-2" href="/docs/00-overview/overview/" role="button">开始学习</a>
+        <a class="btn btn-outline-secondary btn-lg rounded-pill px-4" href="https://github.com/SuperMarioYL/vllm-book" role="button">GitHub</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section section-md bg-light">
+  <div class="container">
+    <div class="row justify-content-center text-center g-4">
+      <div class="col-lg-4">
+        <div class="px-4 py-3">
+          <div class="mb-3 illustration-wrapper">
+            {{ with resources.Get "images/illustrations/thought-process.svg" }}
+              {{ .Content | safeHTML }}
+            {{ end }}
+          </div>
+          <h3 class="h5">理解核心原理</h3>
+          <p class="text-muted">深入讲解 PagedAttention 和连续批处理等核心创新技术</p>
+        </div>
+      </div>
+      <div class="col-lg-4">
+        <div class="px-4 py-3">
+          <div class="mb-3 illustration-wrapper">
+            {{ with resources.Get "images/illustrations/source-code.svg" }}
+              {{ .Content | safeHTML }}
+            {{ end }}
+          </div>
+          <h3 class="h5">源码级分析</h3>
+          <p class="text-muted">跟踪代码执行路径，理解从请求到响应的完整链路</p>
+        </div>
+      </div>
+      <div class="col-lg-4">
+        <div class="px-4 py-3">
+          <div class="mb-3 illustration-wrapper">
+            {{ with resources.Get "images/illustrations/stepping-up.svg" }}
+              {{ .Content | safeHTML }}
+            {{ end }}
+          </div>
+          <h3 class="h5">循序渐进</h3>
+          <p class="text-muted">从深度学习基础到进阶主题，提供清晰的学习路径</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section section-md">
+  <div class="container">
+    <div class="row justify-content-center">
+      <div class="col-lg-8 text-center">
+        <h2 class="mb-4">适用读者</h2>
+      </div>
+    </div>
+    <div class="row justify-content-center g-3">
+      <div class="col-lg-6">
+        <div class="d-flex align-items-start p-3">
+          <span class="me-3">{{ partial "inline-svg" (dict "src" "svgs/tabler-icons/outline/school.svg" "class" "icon-reader") }}</span>
+          <div>
+            <strong>深度学习初学者</strong>
+            <p class="text-muted mb-0">了解基本的 Python 编程，对机器学习有初步认识</p>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-6">
+        <div class="d-flex align-items-start p-3">
+          <span class="me-3">{{ partial "inline-svg" (dict "src" "svgs/tabler-icons/outline/rocket.svg" "class" "icon-reader") }}</span>
+          <div>
+            <strong>LLM 应用开发者</strong>
+            <p class="text-muted mb-0">希望了解推理框架底层原理</p>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-6">
+        <div class="d-flex align-items-start p-3">
+          <span class="me-3">{{ partial "inline-svg" (dict "src" "svgs/tabler-icons/outline/server.svg" "class" "icon-reader") }}</span>
+          <div>
+            <strong>系统工程师</strong>
+            <p class="text-muted mb-0">负责部署和优化 LLM 服务</p>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-6">
+        <div class="d-flex align-items-start p-3">
+          <span class="me-3">{{ partial "inline-svg" (dict "src" "svgs/tabler-icons/outline/microscope.svg" "class" "icon-reader") }}</span>
+          <div>
+            <strong>研究人员</strong>
+            <p class="text-muted mb-0">研究 LLM 推理优化技术</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+{{ end }}
+
+{{ define "sidebar-prefooter" }}
+{{ if site.Params.doks.backgroundDots -}}
+<div class="d-flex justify-content-start">
+  <div class="bg-dots"></div>
+</div>
+{{ end -}}
+{{ end }}
+
+{{ define "sidebar-footer" }}
+{{ end }}

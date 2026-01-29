@@ -3,7 +3,6 @@ title: "为什么需要 vLLM"
 weight: 1
 ---
 
-# 为什么需要 vLLM
 
 > 本章将帮助你理解：为什么传统方案无法满足 LLM 推理需求，以及 vLLM 是如何解决这些问题的。
 
@@ -430,7 +429,6 @@ gantt
 
 ```python
 # 使用 vLLM 启动 OpenAI 兼容的 API 服务
-# vllm serve meta-llama/Llama-2-7b-hf --port 8000
 ```
 
 适用于：
@@ -443,10 +441,8 @@ gantt
 ```python
 from vllm import LLM, SamplingParams
 
-# 创建 LLM 实例
 llm = LLM(model="meta-llama/Llama-2-7b-hf")
 
-# 批量生成
 prompts = ["Hello, my name is", "The capital of France is"]
 sampling_params = SamplingParams(temperature=0.8, max_tokens=100)
 outputs = llm.generate(prompts, sampling_params)

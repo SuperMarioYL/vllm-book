@@ -3,7 +3,6 @@ title: "调度器原理"
 weight: 4
 ---
 
-# 调度器原理详解
 
 调度器（Scheduler）是 vLLM 的"大脑"，它决定了**哪些请求可以运行**以及**每个请求能处理多少 token**。一个好的调度策略直接影响系统的吞吐量、延迟和资源利用率。
 
@@ -568,7 +567,6 @@ def update_from_output(
 # 增加最大并发数
 llm = LLM(model="...", max_num_seqs=512)
 
-# 增加每步 token 数
 llm = LLM(model="...", max_num_batched_tokens=4096)
 ```
 
@@ -589,7 +587,6 @@ llm = LLM(
 # 使用优先级调度
 llm = LLM(model="...", policy="priority")
 
-# 发送请求时设置优先级
 llm.generate(prompt, priority=0)  # 高优先级
 llm.generate(prompt, priority=10)  # 低优先级
 ```

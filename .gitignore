@@ -1,14 +1,7 @@
-.claude
-
-# Hugo 构建产物
-public/
-resources/
+.env
+.netlify
 .hugo_build.lock
-
-# Node
-node_modules/
-package-lock.json
-
-# 系统文件
-.DS_Store
-Thumbs.db
+node_modules
+public
+resources
+hugo_stats.json

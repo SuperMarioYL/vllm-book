@@ -3,7 +3,6 @@ title: "KV Cache 管理器"
 weight: 2
 ---
 
-# KV Cache 管理器详解
 
 在上一章中，我们详细了解了 PagedAttention 的原理——它将 KV Cache 分成固定大小的 Block 来管理。但是，**谁来负责这些 Block 的分配、释放和缓存查找呢？** 答案就是本章的主角：**KVCacheManager**。
 
@@ -573,11 +572,8 @@ sequenceDiagram
 
 ```python
 # 适合启用前缀缓存的场景：
-# - 多轮对话（共享系统提示）
 # - RAG 应用（共享检索文档）
-# - 批量相似任务
 
-# 启用前缀缓存
 llm = LLM(
     model="meta-llama/Llama-2-7b",
     enable_prefix_caching=True
@@ -590,7 +586,6 @@ llm = LLM(
 # 获取 KV Cache 使用率
 usage = kv_cache_manager.usage  # 0.0 ~ 1.0
 
-# 获取前缀缓存统计
 stats = kv_cache_manager.make_prefix_cache_stats()
 print(f"缓存命中率: {stats.hit_rate:.2%}")
 ```
@@ -599,12 +594,9 @@ print(f"缓存命中率: {stats.hit_rate:.2%}")
 
 ```python
 # 方案1：减小 block_size
-# 更细粒度的内存管理，但增加元数据开销
 
-# 方案2：降低 gpu_memory_utilization
 llm = LLM(model="...", gpu_memory_utilization=0.8)
 
-# 方案3：减小 max_model_len
 llm = LLM(model="...", max_model_len=2048)
 ```
 

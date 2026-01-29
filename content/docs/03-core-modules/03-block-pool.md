@@ -3,7 +3,6 @@ title: "Block Pool 内存块池"
 weight: 3
 ---
 
-# Block Pool 内存块池详解
 
 在前两章中，我们了解了 PagedAttention 的分页思想和 KVCacheManager 的分配接口。本章我们将深入到内存管理的最底层——**BlockPool**。
 
@@ -163,11 +162,9 @@ graph LR
 ```python
 # 场景：缓存命中，需要从队列中间移除块
 
-# 使用 deque：O(n) 查找 + 移除
 def remove_from_deque(deque, block):
     deque.remove(block)  # O(n)
 
-# 使用双向链表：O(1) 直接移除
 def remove_from_linked_list(block):
     block.prev_free_block.next_free_block = block.next_free_block
     block.next_free_block.prev_free_block = block.prev_free_block

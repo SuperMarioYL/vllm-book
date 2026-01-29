@@ -3,7 +3,6 @@ title: "PagedAttention 分页注意力"
 weight: 1
 ---
 
-# PagedAttention 分页注意力
 
 > 本章将详细介绍 vLLM 的核心创新——PagedAttention，包括设计思想、数据结构和实现原理。
 
@@ -186,7 +185,6 @@ Block 结构 (block_size = 16):
 k_block = torch.zeros(num_layers, num_heads, block_size, head_dim)
 v_block = torch.zeros(num_layers, num_heads, block_size, head_dim)
 
-# 整个 KV Cache 池
 kv_cache = torch.zeros(num_blocks, 2, num_layers, num_heads, block_size, head_dim)
 ```
 
@@ -359,7 +357,6 @@ graph TB
 request_1 = "你好，请问" + "天气怎么样？"
 request_2 = "你好，请问" + "今天星期几？"
 
-# "你好，请问" 的 KV Cache 可以复用！
 ```
 
 ---

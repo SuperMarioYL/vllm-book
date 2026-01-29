@@ -3,7 +3,6 @@ title: "输出处理"
 weight: 5
 ---
 
-# 输出处理流程
 
 采样完成后，生成的 token 需要经过一系列处理才能最终返回给用户。本章将详细分析从采样结果到用户输出的完整处理流程。
 
@@ -400,7 +399,6 @@ class Logprob:
     rank: int | None         # 在词表中的排名
     decoded_token: str       # 解码后的文本
 
-# 每个位置的 logprobs
 # Dict[token_id, Logprob]
 ```
 

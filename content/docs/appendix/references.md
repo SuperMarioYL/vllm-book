@@ -3,7 +3,6 @@ title: "参考资料"
 weight: 3
 ---
 
-# 参考资料（References）
 
 本文档汇总了学习 vLLM 和 LLM 推理优化所需的关键参考资料。
 

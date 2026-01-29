@@ -3,7 +3,6 @@ title: "请求生命周期"
 weight: 6
 ---
 
-# 请求完整生命周期
 
 本章将完整跟踪一个请求从用户提交到最终返回的全过程，将前面章节的知识串联起来，帮助读者建立完整的认知图景。
 
@@ -175,17 +174,13 @@ sequenceDiagram
 ```python
 # vllm/v1/core/sched/scheduler.py :: schedule()
 
-# 从 waiting 队列取出请求
 request = self.waiting.peek_request()
 
-# 查找前缀缓存
 new_computed_blocks, num_cached_tokens = (
     self.kv_cache_manager.get_computed_blocks(request)
 )
 
-# num_cached_tokens 表示可以跳过的 token 数
 # 例如：prompt 有 100 tokens，前 64 个已缓存
-# 则只需要计算后 36 个
 ```
 
 ### 3.2 分配 KV Cache
@@ -194,7 +189,6 @@ new_computed_blocks, num_cached_tokens = (
 # 计算需要处理的 token 数
 num_new_tokens = request.num_tokens - num_cached_tokens
 
-# 分配 KV Cache slots
 new_blocks = self.kv_cache_manager.allocate_slots(
     request,
     num_new_tokens,
@@ -206,7 +200,6 @@ if new_blocks is None:
     # 内存不足，请求继续等待
     return
 
-# 分配成功
 ```
 
 ### 3.3 移入 Running 队列
@@ -215,10 +208,8 @@ if new_blocks is None:
 # 从 waiting 移除
 request = self.waiting.pop_request()
 
-# 加入 running
 self.running.append(request)
 
-# 更新状态
 request.status = RequestStatus.RUNNING
 request.num_computed_tokens = num_cached_tokens
 ```

@@ -3,7 +3,6 @@ title: "KV Cache 概念"
 weight: 4
 ---
 
-# KV Cache 概念
 
 > 本章将详细介绍 KV Cache 的概念、作用和实现原理，这是理解 vLLM 核心优化的关键。
 
@@ -196,13 +195,10 @@ KV Cache 需要存储每层的 K 和 V：
 
 ```python
 # KV Cache 形状
-# 方式 1: 分开存储
 k_cache = torch.zeros(num_layers, batch_size, num_heads, max_seq_len, head_dim)
 v_cache = torch.zeros(num_layers, batch_size, num_heads, max_seq_len, head_dim)
 
-# 方式 2: 合并存储
 kv_cache = torch.zeros(num_layers, 2, batch_size, num_heads, max_seq_len, head_dim)
-# kv_cache[:, 0, ...] 是 K
 # kv_cache[:, 1, ...] 是 V
 ```
 
@@ -487,7 +483,6 @@ class KVCacheBlock:
     ref_cnt: int           # 引用计数
     block_hash: Optional[BlockHash]  # 用于前缀缓存
 
-# vllm/v1/worker/block_table.py 中的块表
 class BlockTable:
     """管理逻辑块到物理块的映射"""
     def __init__(self, ...):

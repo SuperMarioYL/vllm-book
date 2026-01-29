@@ -3,7 +3,6 @@ title: "Transformer 架构详解"
 weight: 2
 ---
 
-# Transformer 架构详解
 
 > 本章将详细介绍 Transformer 架构，这是现代大语言模型的基础。
 
@@ -195,14 +194,11 @@ class TokenEmbedding(nn.Module):
         # 返回: [batch_size, seq_len, hidden_dim]
         return self.embedding(token_ids)
 
-# 示例
 vocab_size = 32000
 hidden_dim = 4096
 embedding = TokenEmbedding(vocab_size, hidden_dim)
 
-# 输入 token IDs
 token_ids = torch.tensor([[1, 234, 567], [89, 10, 1112]])  # [2, 3]
-# 输出嵌入向量
 vectors = embedding(token_ids)  # [2, 3, 4096]
 ```
 
@@ -261,9 +257,7 @@ def sinusoidal_position_encoding(max_len, hidden_dim):
     pe[:, 1::2] = np.cos(position * div_term)
     return pe
 
-# 生成位置编码
 pe = sinusoidal_position_encoding(512, 4096)
-# Shape: [512, 4096]
 ```
 
 ### 4.3 RoPE（旋转位置编码）

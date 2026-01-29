@@ -3,7 +3,6 @@ title: "注意力机制原理"
 weight: 3
 ---
 
-# 注意力机制原理
 
 > 本章将深入介绍自注意力机制的数学原理和计算过程，这是理解 vLLM 核心优化的关键。
 
@@ -124,11 +123,9 @@ flowchart TD
 import torch
 import torch.nn.functional as F
 
-# 输入
 seq_len = 3
 d_k = 4
 
-# 假设 Q, K, V 已经通过线性投影得到
 Q = torch.tensor([
     [1.0, 0.0, 1.0, 0.0],  # token 0 的 query
     [0.0, 1.0, 0.0, 1.0],  # token 1 的 query
@@ -147,27 +144,20 @@ V = torch.tensor([
     [9.0, 10., 11., 12.],  # token 2 的 value
 ])
 
-# 步骤 1: 计算 Q × K^T
 scores = Q @ K.T
 print("注意力分数 (未缩放):")
 print(scores)
-# tensor([[1., 1., 2.],
 #         [1., 1., 2.],
-#         [1., 1., 3.]])
 
-# 步骤 2: 缩放
 d_k = 4
 scaled_scores = scores / (d_k ** 0.5)
 print("\n缩放后的分数:")
 print(scaled_scores)
 
-# 步骤 3: Softmax
 attention_weights = F.softmax(scaled_scores, dim=-1)
 print("\n注意力权重:")
 print(attention_weights)
-# 每行和为 1
 
-# 步骤 4: 加权求和
 output = attention_weights @ V
 print("\n输出:")
 print(output)
@@ -359,9 +349,7 @@ graph LR
 seq_len = 4
 mask = torch.tril(torch.ones(seq_len, seq_len))
 print(mask)
-# tensor([[1., 0., 0., 0.],
 #         [1., 1., 0., 0.],
-#         [1., 1., 1., 0.],
 #         [1., 1., 1., 1.]])
 ```
 

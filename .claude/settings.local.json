@@ -1,0 +1,13 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(/private/tmp/claude/-Users-yulei-workspace-vllm-book/55e378b5-464c-4772-9acd-e88247df398c/scratchpad/migrate.sh)",
+      "Bash(curl:*)",
+      "Bash(git reset:*)",
+      "Bash(find:*)",
+      "Bash(hugo list:*)",
+      "Bash(npm run dev:*)",
+      "Bash(pkill:*)"
+    ]
+  }
+}

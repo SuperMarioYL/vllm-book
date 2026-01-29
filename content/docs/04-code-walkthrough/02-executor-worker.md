@@ -3,7 +3,6 @@ title: "执行器与 Worker"
 weight: 2
 ---
 
-# Executor 与 Worker 详解
 
 在上一章中，我们了解了 vLLM 的入口点和请求处理流程。本章我们将深入 Executor 和 Worker 层，了解模型是如何在 GPU 上执行的。
 
@@ -500,11 +499,8 @@ def initialize_from_config(self, kv_cache_configs: list[KVCacheConfig]) -> None:
 
 ```python
 # KV Cache 的形状
-# [num_blocks, 2, num_heads, block_size, head_dim]
 #     ↑        ↑      ↑          ↑         ↑
-#   块数量   K和V   注意力头数  块大小   头维度
 
-# 示例：16 块，8 头，16 token/块，128 维
 kv_cache_shape = (16, 2, 8, 16, 128)
 kv_cache = torch.empty(kv_cache_shape, dtype=torch.float16, device="cuda")
 ```

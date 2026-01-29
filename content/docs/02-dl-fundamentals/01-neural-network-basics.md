@@ -3,7 +3,6 @@ title: "神经网络基础"
 weight: 1
 ---
 
-# 神经网络基础
 
 > 本章将介绍神经网络的基本概念，为理解 Transformer 和 LLM 打下基础。
 
@@ -207,19 +206,15 @@ graph TD
 ```python
 import torch
 
-# 标量
 scalar = torch.tensor(3.14)
 print(scalar.shape)  # torch.Size([])
 
-# 向量
 vector = torch.tensor([1, 2, 3])
 print(vector.shape)  # torch.Size([3])
 
-# 矩阵
 matrix = torch.tensor([[1, 2], [3, 4], [5, 6]])
 print(matrix.shape)  # torch.Size([3, 2])  # 3行2列
 
-# 3D 张量
 tensor_3d = torch.randn(2, 3, 4)
 print(tensor_3d.shape)  # torch.Size([2, 3, 4])
 ```
@@ -247,21 +242,13 @@ num_heads = 32      # 注意力头数
 head_dim = 128      # 每个头的维度 (hidden_dim / num_heads)
 vocab_size = 32000  # 词表大小
 
-# 输入
 input_ids = torch.randint(0, vocab_size, (batch_size, seq_len))
-# Shape: [4, 512]
 
-# Embedding 后
 embeddings = torch.randn(batch_size, seq_len, hidden_dim)
-# Shape: [4, 512, 4096]
 
-# Attention 输出
 attention_output = torch.randn(batch_size, seq_len, hidden_dim)
-# Shape: [4, 512, 4096]
 
-# 最终 logits
 logits = torch.randn(batch_size, seq_len, vocab_size)
-# Shape: [4, 512, 32000]
 ```
 
 ### 3.4 常用张量操作
@@ -269,24 +256,20 @@ logits = torch.randn(batch_size, seq_len, vocab_size)
 ```python
 import torch
 
-# 创建张量
 x = torch.randn(2, 3, 4)  # 随机正态分布
 y = torch.zeros(2, 3, 4)  # 全零
 z = torch.ones(2, 3, 4)   # 全一
 
-# 形状操作
 x.view(2, 12)      # 重塑形状 [2, 3, 4] → [2, 12]
 x.reshape(6, 4)    # 重塑形状 [2, 3, 4] → [6, 4]
 x.transpose(1, 2)  # 交换维度 [2, 3, 4] → [2, 4, 3]
 x.permute(2, 0, 1) # 重排维度 [2, 3, 4] → [4, 2, 3]
 
-# 数学运算
 x + y              # 逐元素加法
 x * y              # 逐元素乘法
 x @ y.transpose(-1, -2)  # 矩阵乘法
 torch.softmax(x, dim=-1) # Softmax
 
-# 索引和切片
 x[0]               # 第一个样本
 x[:, 0, :]         # 所有样本的第一个位置
 x[..., -1]         # 最后一个维度的最后一个元素
@@ -375,16 +358,13 @@ graph TB
 import torch
 import time
 
-# 创建大矩阵
 A = torch.randn(4096, 4096)
 B = torch.randn(4096, 4096)
 
-# CPU 计算
 start = time.time()
 C_cpu = A @ B
 cpu_time = time.time() - start
 
-# GPU 计算
 A_gpu = A.cuda()
 B_gpu = B.cuda()
 torch.cuda.synchronize()
@@ -395,7 +375,6 @@ gpu_time = time.time() - start
 
 print(f"CPU: {cpu_time:.3f}s, GPU: {gpu_time:.3f}s")
 print(f"加速比: {cpu_time/gpu_time:.1f}x")
-# 典型输出: CPU: 2.5s, GPU: 0.01s, 加速比: 250x
 ```
 
 ---
@@ -481,7 +460,6 @@ class SimpleMLP(nn.Module):
         x = self.layer2(x)       # [batch_size, output_dim]
         return x
 
-# 使用
 model = SimpleMLP(768, 3072, 768)
 input_data = torch.randn(32, 768)  # batch_size=32
 output = model(input_data)  # [32, 768]
@@ -497,9 +475,7 @@ output = model(input_data)  # [32, 768]
 
 **示例**：
 ```python
-# 层: Linear(768, 3072)
 # 权重参数: 768 × 3072 = 2,359,296
-# 偏置参数: 3072
 # 总计: 2,362,368 ≈ 2.36M
 ```
 
@@ -534,11 +510,8 @@ graph LR
 
 ```python
 # 常见词表大小
-# GPT-2: 50257
 # LLaMA: 32000
-# Qwen: 151936
 
-# Tokenization 示例
 text = "Hello, how are you?"
 tokens = tokenizer.encode(text)
 # tokens = [15496, 11, 703, 527, 499, 30]
@@ -563,13 +536,11 @@ graph LR
 ```python
 import torch.nn as nn
 
-# Embedding 层
 vocab_size = 32000
 hidden_dim = 4096
 
 embedding = nn.Embedding(vocab_size, hidden_dim)
 
-# 使用
 token_ids = torch.tensor([15496, 11, 703])  # 3 个 token
 vectors = embedding(token_ids)  # [3, 4096]
 ```

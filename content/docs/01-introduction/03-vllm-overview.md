@@ -3,7 +3,6 @@ title: "vLLM 整体架构概览"
 weight: 3
 ---
 
-# vLLM 整体架构概览
 
 > 本章将带你了解 vLLM 的整体架构设计，包括核心组件、数据流程和代码目录结构。
 
@@ -144,17 +143,14 @@ vLLM 提供多种使用方式，满足不同场景需求。
 ```python
 from vllm import LLM, SamplingParams
 
-# 创建 LLM 实例
 llm = LLM(model="meta-llama/Llama-2-7b-hf")
 
-# 定义采样参数
 sampling_params = SamplingParams(
     temperature=0.8,
     top_p=0.95,
     max_tokens=100
 )
 
-# 批量生成
 prompts = ["Hello, my name is", "The capital of France is"]
 outputs = llm.generate(prompts, sampling_params)
 
@@ -172,7 +168,6 @@ for output in outputs:
 # 启动 OpenAI 兼容的 API 服务
 vllm serve meta-llama/Llama-2-7b-hf --port 8000
 
-# 运行 benchmark
 vllm bench --model meta-llama/Llama-2-7b-hf
 ```
 

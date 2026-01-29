@@ -3,7 +3,6 @@ title: "LLM 生成过程"
 weight: 5
 ---
 
-# LLM 生成过程
 
 > 本章将详细介绍 LLM 文本生成的完整流程，包括 Prefill、Decode 两个阶段以及各种采样策略。
 
@@ -81,7 +80,6 @@ text = "Hello, how are you?"
 tokens = tokenizer.encode(text)
 print(tokens)  # [1, 15043, 29892, 920, 526, 366, 29973]
 print(tokenizer.convert_ids_to_tokens(tokens))
-# ['<s>', 'Hello', ',', 'how', 'are', 'you', '?']
 ```
 
 ### 2.2 并行计算所有 Token
@@ -279,11 +277,8 @@ def decode_loop(model, first_token, kv_cache, max_tokens, stop_token_id):
 
 ```python
 # logits: [vocab_size]
-# 例如: [-1.2, 0.5, 2.3, -0.1, ...]
 
-# 转换为概率
 probs = F.softmax(logits, dim=-1)
-# probs: [0.01, 0.05, 0.30, 0.03, ...]  和为 1
 ```
 
 ### 4.2 Greedy Decoding（贪婪解码）
@@ -511,7 +506,6 @@ def decode_single(request):
     process_1_token()   # 很小的计算量
     # GPU 大部分时间空闲
 
-# 批处理
 def decode_batch(requests, batch_size=32):
     read_weights()      # 14GB（只读一次）
     process_32_tokens() # 32 倍的计算量
@@ -561,7 +555,6 @@ def generate(model, tokenizer, prompt, max_tokens=100, temperature=0.8, top_p=0.
     output_text = tokenizer.decode(generated_tokens)
     return output_text
 
-# 使用
 output = generate(model, tokenizer, "Once upon a time", max_tokens=50)
 print(output)
 ```

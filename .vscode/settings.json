@@ -1,33 +1,7 @@
 {
-  "files.exclude": {
-    "**/.git": true,
-    "**/.svn": true,
-    "**/.hg": true,
-    "**/.DS_Store": true,
-    "**/Thumbs.db": true,
-    "**/.classpath": true,
-    "**/.project": true,
-    "**/.settings": true,
-    "**/.factorypath": true,
-    "public": true,
-    "resources": true
-  },
-  "hide-files.files": [],
-  "files.associations": {
-    "*.md": "markdown"
-  },
-  "[markdown]": {
-    "editor.wordWrap": "on",
-    "editor.quickSuggestions": {
-      "other": true,
-      "comments": false,
-      "strings": false
-    }
-  },
-  "markdown.preview.breaks": true,
-  "search.exclude": {
-    "**/public": true,
-    "**/resources": true,
-    "**/themes": true
-  }
+  "editor.wordWrap": "off",
+  "files.trimTrailingWhitespace": true,
+  "files.insertFinalNewline": true,
+  "editor.tabSize": 2,
+  "editor.insertSpaces": true
 }

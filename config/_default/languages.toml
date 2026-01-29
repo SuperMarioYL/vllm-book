@@ -1,0 +1,33 @@
+[zh]
+  languageName = "中文"
+  contentDir = "content"
+  weight = 10
+  [zh.params]
+    languageISO = "ZH"
+    languageTag = "zh-CN"
+    footer = '基于 <a class="text-muted" href="https://getdoks.org/">Doks</a> 构建'
+
+[en]
+  languageName = "English"
+  contentDir = "content/en"
+  weight = 20
+  [en.params]
+    languageISO = "EN"
+    languageTag = "en-US"
+    footer = 'Brought to you by <a class="text-muted" href="https://thulite.io/">Thulite</a>'
+
+[de]
+  languageName = "German"
+  contentDir = "content/de"
+  weight = 30
+  [de.params]
+    languageISO = "DE"
+    languageTag = "de-DE"
+
+[nl]
+  languageName = "Nederlands"
+  contentDir = "content/nl"
+  weight = 40
+  [nl.params]
+    languageISO = "NL"
+    languageTag = "nl-NL"

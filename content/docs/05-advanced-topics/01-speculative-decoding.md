@@ -3,7 +3,6 @@ title: "投机解码"
 weight: 1
 ---
 
-# 投机解码（Speculative Decoding）
 
 ## 概述
 
@@ -659,14 +658,12 @@ def propose_tree(
 ```python
 from vllm import LLM, SamplingParams
 
-# 使用独立 Draft 模型
 llm = LLM(
     model="meta-llama/Llama-3.1-70B-Instruct",
     speculative_model="meta-llama/Llama-3.2-1B-Instruct",
     num_speculative_tokens=5,  # 每次投机生成的 token 数
 )
 
-# 使用 EAGLE
 llm = LLM(
     model="meta-llama/Llama-3.1-70B-Instruct",
     speculative_model="path/to/eagle-head",
@@ -683,7 +680,6 @@ vllm serve meta-llama/Llama-3.1-70B-Instruct \
     --speculative-model meta-llama/Llama-3.2-1B-Instruct \
     --num-speculative-tokens 5
 
-# 使用 EAGLE
 vllm serve meta-llama/Llama-3.1-70B-Instruct \
     --speculative-model path/to/eagle-head \
     --speculative-method eagle \

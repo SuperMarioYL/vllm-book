@@ -3,7 +3,6 @@ title: "入口点分析"
 weight: 1
 ---
 
-# 入口点分析
 
 本章开始，我们将从代码层面深入分析 vLLM 的执行流程。首先从入口点开始，了解用户如何与 vLLM 交互，以及请求是如何被处理的。
 
@@ -372,7 +371,6 @@ sequenceDiagram
 # 启动 OpenAI 兼容的 API 服务
 vllm serve meta-llama/Llama-2-7b --port 8000
 
-# 或使用 Python
 python -m vllm.entrypoints.openai.api_server --model meta-llama/Llama-2-7b
 ```
 

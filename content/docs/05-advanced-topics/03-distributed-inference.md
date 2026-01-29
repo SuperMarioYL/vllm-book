@@ -3,7 +3,6 @@ title: "分布式推理"
 weight: 3
 ---
 
-# 分布式推理（Distributed Inference）
 
 ## 概述
 
@@ -264,7 +263,6 @@ gantt
 ```python
 from vllm import LLM
 
-# 配置流水线并行
 llm = LLM(
     model="meta-llama/Llama-3.1-70B-Instruct",
     tensor_parallel_size=2,   # 每个流水线阶段 2 卡张量并行
@@ -305,10 +303,8 @@ vLLM 支持通过多实例实现数据并行：
 
 ```bash
 # 启动多个 vLLM 实例
-# 实例 1：使用 GPU 0-1
 CUDA_VISIBLE_DEVICES=0,1 vllm serve model --tensor-parallel-size 2 --port 8000
 
-# 实例 2：使用 GPU 2-3
 CUDA_VISIBLE_DEVICES=2,3 vllm serve model --tensor-parallel-size 2 --port 8001
 ```
 
@@ -410,15 +406,10 @@ sequenceDiagram
 
 ```python
 # 并行组划分示例
-# 假设 4 GPU，TP=2，PP=2
 
-# 张量并行组：
 # [GPU 0, GPU 1]  # 第一阶段
-# [GPU 2, GPU 3]  # 第二阶段
 
-# 流水线并行组：
 # [GPU 0, GPU 2]  # 第一个数据并行副本
-# [GPU 1, GPU 3]  # 第二个数据并行副本
 ```
 
 ---
@@ -480,7 +471,6 @@ class MultiprocExecutor:
 # 使用 Ray 进行多节点分布式推理
 from vllm import LLM
 
-# Ray 会自动检测集群中的 GPU
 llm = LLM(
     model="meta-llama/Llama-3.1-70B-Instruct",
     tensor_parallel_size=4,  # 使用 4 张 GPU
@@ -576,7 +566,6 @@ vllm serve meta-llama/Llama-3.1-405B-Instruct \
     --pipeline-parallel-size 2 \
     --distributed-executor-backend ray
 
-# 确保 Ray 集群已启动并包含所有节点
 ```
 
 ---
@@ -587,18 +576,15 @@ vllm serve meta-llama/Llama-3.1-405B-Instruct \
 
 1. **重叠计算与通信**：
 ```python
-# 使用异步通信
 with torch.cuda.stream(comm_stream):
     all_reduce(tensor)
 
-# 同时在计算流上进行其他操作
 with torch.cuda.stream(compute_stream):
     other_computation()
 ```
 
 2. **使用 Custom AllReduce**：
 ```python
-# 对于小张量，使用自定义 AllReduce
 # vLLM 会自动选择最优策略
 ```
 
@@ -608,7 +594,6 @@ with torch.cuda.stream(compute_stream):
 
 ```python
 # 手动指定层分配（如果需要）
-# 默认情况下 vLLM 会均匀分配
 ```
 
 ---
@@ -625,7 +610,6 @@ from vllm.distributed import (
     get_pipeline_model_parallel_world_size,
 )
 
-# 打印当前进程的并行信息
 print(f"TP Rank: {get_tensor_model_parallel_rank()}")
 print(f"TP World Size: {get_tensor_model_parallel_world_size()}")
 print(f"PP Rank: {get_pipeline_model_parallel_rank()}")
@@ -638,10 +622,8 @@ print(f"PP World Size: {get_pipeline_model_parallel_world_size()}")
 # 设置 NCCL 调试级别
 export NCCL_DEBUG=INFO
 
-# 设置 NCCL 超时
 export NCCL_TIMEOUT=1800
 
-# 禁用 P2P 通信（调试用）
 export NCCL_P2P_DISABLE=1
 ```
 

@@ -3,7 +3,6 @@ title: "量化技术"
 weight: 2
 ---
 
-# 量化技术（Quantization）
 
 ## 概述
 
@@ -299,7 +298,6 @@ llm = LLM(
     quantization="awq",
 )
 
-# 或者使用 Marlin 加速
 llm = LLM(
     model="TheBloke/Llama-2-7B-AWQ",
     quantization="awq_marlin",  # 使用 Marlin 内核
@@ -338,7 +336,6 @@ llm = LLM(
     quantization="gptq",
 )
 
-# 使用 Marlin 内核加速
 llm = LLM(
     model="TheBloke/Llama-2-7B-GPTQ",
     quantization="gptq_marlin",
@@ -474,7 +471,6 @@ llm = LLM(
 ```python
 # vllm/model_executor/model_loader/online_quantization.py
 
-# 动态 FP8 量化
 llm = LLM(
     model="meta-llama/Llama-2-7B",
     quantization="fp8",
@@ -559,14 +555,12 @@ llm = LLM(
     tensor_parallel_size=4,
 )
 
-# 资源受限环境
 llm = LLM(
     model="TheBloke/Llama-2-70B-GPTQ",
     quantization="gptq_marlin",
     tensor_parallel_size=2,
 )
 
-# 单 GPU 部署
 llm = LLM(
     model="TheBloke/Llama-2-7B-AWQ",
     quantization="awq_marlin",

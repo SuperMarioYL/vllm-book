@@ -3,7 +3,6 @@ title: "代码文件索引"
 weight: 2
 ---
 
-# 代码文件索引（Code Map）
 
 本文档提供 vLLM 代码库的关键文件索引，帮助读者快速定位感兴趣的代码。
 
@@ -204,22 +203,17 @@ vllm/
 # 1. 用户调用
 LLM.generate()                          # vllm/entrypoints/llm.py
 
-# 2. 引擎处理
 LLMEngine.add_request()                  # vllm/v1/engine/llm_engine.py
 EngineCore.step()                        # vllm/v1/engine/core.py
 
-# 3. 调度
 Scheduler.schedule()                     # vllm/v1/core/sched/scheduler.py
 KVCacheManager.allocate_slots()          # vllm/v1/core/kv_cache_manager.py
 
-# 4. 执行
 GPUModelRunner.execute_model()           # vllm/v1/worker/gpu_model_runner.py
 model.forward()                          # vllm/model_executor/models/*.py
 
-# 5. 采样
 Sampler.forward()                        # vllm/v1/sample/sampler.py
 
-# 6. 输出
 OutputProcessor.process()                # vllm/v1/engine/processor.py
 ```
 
@@ -230,11 +224,9 @@ OutputProcessor.process()                # vllm/v1/engine/processor.py
 KVCacheManager.allocate_slots()          # vllm/v1/core/kv_cache_manager.py
 BlockPool.get_free_blocks()              # vllm/v1/core/block_pool.py
 
-# 释放
 KVCacheManager.free()                    # vllm/v1/core/kv_cache_manager.py
 BlockPool.free_blocks()                  # vllm/v1/core/block_pool.py
 
-# 前缀缓存
 KVCacheManager.get_computed_blocks()     # vllm/v1/core/kv_cache_manager.py
 ```
 
@@ -258,10 +250,8 @@ KVCacheManager.get_computed_blocks()     # vllm/v1/core/kv_cache_manager.py
 # 详细日志
 export VLLM_LOGGING_LEVEL=DEBUG
 
-# 函数追踪
 export VLLM_TRACE_FUNCTION=1
 
-# 调度器日志
 export VLLM_LOG_SCHEDULER=1
 ```
 
