@@ -3,8 +3,6 @@ title: "Worker 设计详解"
 weight: 4
 ---
 
-# Worker 设计详解
-
 > 本文详细介绍 Dynamo 的 Worker 设计，包括 VllmWorker 的定义、生命周期管理和指标发布。
 
 ---

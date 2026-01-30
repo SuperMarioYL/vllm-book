@@ -3,8 +3,6 @@ title: "NIXL 数据传输"
 weight: 5
 ---
 
-# NIXL 数据传输
-
 > NIXL（NVIDIA Inference Transfer Library）是 Dynamo 数据平面的核心组件，用于高性能 KV Cache 传输。本文档解析其原理和使用。
 
 ---

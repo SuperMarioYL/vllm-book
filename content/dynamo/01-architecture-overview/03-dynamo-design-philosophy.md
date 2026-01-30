@@ -3,8 +3,6 @@ title: "Dynamo 设计理念"
 weight: 3
 ---
 
-# Dynamo 设计理念
-
 > 本文介绍 NVIDIA Dynamo 的设计目标、技术栈选择以及核心设计原则。
 
 ---

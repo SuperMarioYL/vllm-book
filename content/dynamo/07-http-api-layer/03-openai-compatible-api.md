@@ -3,8 +3,6 @@ title: "OpenAI 兼容 API"
 weight: 3
 ---
 
-# OpenAI 兼容 API
-
 > 本文档详解 Dynamo 的 OpenAI 兼容 API 实现，包括 Chat Completions、Completions 和 Models 端点，以及 NVIDIA 扩展（NvExt）。
 
 ---

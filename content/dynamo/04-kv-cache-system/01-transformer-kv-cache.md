@@ -3,8 +3,6 @@ title: "KV Cache 原理"
 weight: 1
 ---
 
-# Transformer KV Cache 原理
-
 > 理解 KV Cache 是掌握 LLM 推理优化的基础。本文档从 Self-Attention 机制出发，深入解析 KV Cache 的工作原理和内存特性。
 
 ---

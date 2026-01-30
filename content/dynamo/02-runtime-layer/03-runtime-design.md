@@ -3,8 +3,6 @@ title: "Runtime 双层设计"
 weight: 3
 ---
 
-# Runtime 双层设计
-
 > 本文介绍 Dynamo 的 Runtime 双层设计，包括 Local Runtime、Distributed Runtime 以及生命周期管理。
 
 ---

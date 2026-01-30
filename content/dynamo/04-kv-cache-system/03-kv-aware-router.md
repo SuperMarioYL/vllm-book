@@ -3,8 +3,6 @@ title: "KV-Aware Router"
 weight: 3
 ---
 
-# KV-Aware Router 详解
-
 > KV-Aware Router 是 Dynamo 的核心创新之一。本文档详细解析其设计原理、评分机制和代价函数。
 
 ---

@@ -3,8 +3,6 @@ title: "优化技术综述"
 weight: 2
 ---
 
-# KV Cache 优化技术综述
-
 > 本文档综述 KV Cache 的主要优化技术，包括 PagedAttention、Prefix Caching、KV Compression 和 Offloading，为理解 Dynamo 的设计提供背景。
 
 ---

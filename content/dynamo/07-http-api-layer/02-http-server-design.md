@@ -3,8 +3,6 @@ title: "HTTP Server 设计"
 weight: 2
 ---
 
-# HTTP Server 设计
-
 > 本文档详解 Dynamo HTTP 服务的架构设计，包括 HttpService、DeploymentState 和 ModelManager 的实现细节。
 
 ---

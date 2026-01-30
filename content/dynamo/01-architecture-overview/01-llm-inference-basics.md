@@ -3,8 +3,6 @@ title: "LLM 推理基础"
 weight: 1
 ---
 
-# LLM 推理基础
-
 > 本文介绍大语言模型（LLM）推理的基础知识，包括 Transformer 架构原理、自回归生成过程，以及 Prefill/Decode 两阶段的特性差异。
 
 ---

@@ -3,8 +3,6 @@ title: "KV Cache Manager"
 weight: 5
 ---
 
-# KV Cache Manager
-
 > KV Cache Manager 负责 KV Cache 的存储分配、生命周期管理和多层存储。本文档详细解析其设计与实现。
 
 ---

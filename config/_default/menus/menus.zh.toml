@@ -4,9 +4,19 @@
   weight = 10
 
 [[main]]
+  name = "SGLang"
+  url = "/sglang/00-overview/overview/"
+  weight = 15
+
+[[main]]
   name = "Dynamo"
-  url = "/dynamo/01-architecture-overview/01-llm-inference-basics/"
+  url = "/dynamo/00-overview/overview/"
   weight = 20
+
+[[main]]
+  name = "CacheBlend"
+  url = "/cacheblend/00-overview/overview/"
+  weight = 25
 
 [[social]]
   name = "GitHub"

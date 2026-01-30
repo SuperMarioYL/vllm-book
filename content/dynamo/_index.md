@@ -1,7 +1,7 @@
 ---
 title: "Dynamo"
 linkTitle: "Dynamo"
-weight: 2
+weight: 3
 description: "NVIDIA Dynamo 分布式推理框架深度解析"
 ---
 

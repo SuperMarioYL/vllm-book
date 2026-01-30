@@ -3,8 +3,6 @@ title: "TCP Pipeline"
 weight: 6
 ---
 
-# TCP Pipeline 通信
-
 > TCP Pipeline 是 Dynamo 数据平面的通用传输层，用于流式响应和 NIXL 回退。本文档解析其设计与实现。
 
 ---

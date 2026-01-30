@@ -3,8 +3,6 @@ title: "RadixTree 索引"
 weight: 4
 ---
 
-# RadixTree 索引机制
-
 > RadixTree 是 Dynamo KV-Aware Router 的核心数据结构。本文档详细解析其原理、实现和应用。
 
 ---

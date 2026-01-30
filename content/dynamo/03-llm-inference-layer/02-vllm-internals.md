@@ -3,8 +3,6 @@ title: "vLLM 技术解析"
 weight: 2
 ---
 
-# vLLM 技术解析
-
 > 本文深入解析 vLLM 的核心技术，包括 PagedAttention 和调度器设计。
 
 ---

@@ -3,8 +3,6 @@ title: "Component 系统"
 weight: 4
 ---
 
-# Component 系统详解
-
 > 本文详细介绍 Dynamo 的 Component 系统，包括 Namespace、Component、Endpoint 和 Registry 的设计与实现。
 
 ---

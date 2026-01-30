@@ -3,8 +3,6 @@ title: "Pipeline 架构"
 weight: 5
 ---
 
-# Pipeline 架构
-
 > 本文介绍 Dynamo 的 Pipeline 架构，包括 AsyncEngine Trait 体系、Pipeline 类型系统、Source/Sink/Operator 模式以及 Context 上下文传递。
 
 ---

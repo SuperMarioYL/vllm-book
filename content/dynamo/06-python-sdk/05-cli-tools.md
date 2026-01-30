@@ -3,8 +3,6 @@ title: "CLI 工具"
 weight: 5
 ---
 
-# CLI 工具
-
 > 本文档介绍 Dynamo SDK 提供的命令行工具，包括 dynamo serve 命令的使用和配置文件格式。
 
 ---

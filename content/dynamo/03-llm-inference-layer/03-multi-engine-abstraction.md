@@ -3,8 +3,6 @@ title: "多引擎抽象层"
 weight: 3
 ---
 
-# 多引擎抽象层
-
 > 本文介绍 Dynamo 的多引擎抽象层设计，包括 AsyncEngine Trait 和各引擎的适配实现。
 
 ---

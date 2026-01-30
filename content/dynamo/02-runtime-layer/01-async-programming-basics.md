@@ -3,8 +3,6 @@ title: "Rust 异步编程基础"
 weight: 1
 ---
 
-# Rust 异步编程基础
-
 > 本文介绍 Rust 异步编程模型的核心概念，包括 Future、Poll 机制、async/await 语法以及 Tokio 运行时架构。
 
 ---

@@ -3,8 +3,6 @@ title: "错误处理"
 weight: 5
 ---
 
-# 错误处理与指标监控
-
 > 本文档详解 Dynamo HTTP 层的错误处理机制和 Prometheus 指标监控实现。
 
 ---

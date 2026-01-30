@@ -3,8 +3,6 @@ title: "Disaggregated Serving"
 weight: 5
 ---
 
-# Disaggregated Serving 详解
-
 > 本文详细介绍 Dynamo 的 Disaggregated Serving（分离式服务），包括分离原理、DisaggregatedRouter 和远程 Prefill 流程。
 
 ---

@@ -3,8 +3,6 @@ title: "服务装饰器"
 weight: 3
 ---
 
-# 服务定义装饰器
-
 > 本文档详解 Dynamo SDK 提供的服务定义装饰器，包括 @service、@dynamo_endpoint 和 @async_on_start 的设计原理和使用方法。
 
 ---

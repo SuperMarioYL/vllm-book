@@ -3,8 +3,6 @@ title: "REST API 基础"
 weight: 1
 ---
 
-# REST API 设计基础
-
 > 本文档介绍 REST API 设计原则和 LLM 推理 API 的特殊需求，为理解 Dynamo HTTP 层奠定基础。
 
 ---
