@@ -1,0 +1,14 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(for dir in /Users/yulei/workspace/inference-cookbook/content/ucm/*/)",
+      "Bash(do)",
+      "Bash(if [ -f \"$dir_index.md\" ])",
+      "Bash(then)",
+      "Bash(echo:*)",
+      "Bash(else)",
+      "Bash(fi)",
+      "Bash(done)"
+    ]
+  }
+}
