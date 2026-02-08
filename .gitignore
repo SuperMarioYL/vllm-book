@@ -1,5 +1,6 @@
 .env
 .netlify
+.wrangler
 .hugo_build.lock
 node_modules
 public

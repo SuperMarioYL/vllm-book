@@ -64,7 +64,7 @@ npm run build
 
 - [Hugo](https://gohugo.io/) - 静态网站生成器
 - [Doks](https://getdoks.org/) - 文档主题
-- [GitHub Pages](https://pages.github.com/) - 托管平台
+- [Cloudflare Pages](https://pages.cloudflare.com/) - 托管平台
 - [GitHub Actions](https://github.com/features/actions) - CI/CD
 
 ## 许可
