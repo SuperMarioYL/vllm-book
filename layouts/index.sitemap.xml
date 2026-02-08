@@ -1,0 +1,14 @@
+{{- /* Root sitemap index: delegates URL details to section-level sitemaps. */ -}}
+{{- printf "<?xml version=\"1.0\" encoding=\"utf-8\" standalone=\"yes\"?>" | safeHTML }}
+<sitemapindex xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  {{- range .Site.Sections.ByTitle }}
+    {{- if gt (len .RegularPagesRecursive) 0 }}
+  <sitemap>
+    <loc>{{ .Permalink }}sitemap.xml</loc>
+    {{- with .Lastmod }}
+    <lastmod>{{ .Format "2006-01-02T15:04:05-07:00" }}</lastmod>
+    {{- end }}
+  </sitemap>
+    {{- end }}
+  {{- end }}
+</sitemapindex>
