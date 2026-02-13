@@ -31,7 +31,7 @@
 [[main]]
   name = "PyTorch"
   url = "/pytorch/00-overview/01-architecture-overview/"
-  weight = 30
+  weight = 5
 
 [[social]]
   name = "GitHub"
